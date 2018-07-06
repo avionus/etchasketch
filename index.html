@@ -8,16 +8,27 @@
 		<div id="container"></div>
 		<button id="button">Reset</button>
 		<script type="text/javascript">
-			const reset = document.querySelector('#button');
+			const reset = document.querySelector('#button')
 			const bigGrid = document.querySelector('#container');
-			reset.addEventListener('click', prompt("enter a number"));
-			bigGrid.style.gridTemplateColumns = 'repeat(' + reset.addEventListener('click', prompt("enter a number")); + ', 1fr)';
-			bigGrid.style.gridTemplateRows = 'repeat(' + reset.addEventListener('click', prompt("enter a number")); + ', 1fr)';
+			const x = prompt("enter a number");
+			bigGrid.style.gridTemplateColumns = 'repeat(' + x + ', 1fr)';
+			bigGrid.style.gridTemplateRows = 'repeat(' + x + ', 1fr)';
 			for(j = 0; j < x; j++){
 				for(i = 0; i < x; i++){
 					const cells = document.createElement('div');
-					cells.textContent = i;
 					cells.classList.add('blocks');
+					cells.addEventListener("mouseover", function(event){
+						event.target.style.backgroundColor = "rgba(100, 0, 100, 100)";
+						setTimeout(function(){
+							event.target.style.backgroundColor = "rgba(100, 0, 100, 75%)";
+						}, 250)
+						setTimeout(function(){
+							event.target.style.backgroundColor = "rgba(100, 0, 100, 50%)";
+						}, 500)
+						setTimeout(function(){
+							event.target.style.backgroundColor = "";
+						}, 1000);
+					}, false);
 					bigGrid.appendChild(cells);
 				}
 			}
