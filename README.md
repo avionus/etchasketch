@@ -1,0 +1,1 @@
+The readme for my Etch-a-Sketch project. I had one of these when I was a kid; it'll be fun to try and recreate it in javascript!

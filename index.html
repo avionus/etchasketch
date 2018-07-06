@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Etch-a-Sketch!</title>
+		<link rel="stylesheet" type="text/css" href="etchasketch.css">
+	</head>
+	<body>
+		<div id="container"></div>
+		<button id="button">Reset</button>
+		<script type="text/javascript">
+			const reset = document.querySelector('#button');
+			const bigGrid = document.querySelector('#container');
+			reset.addEventListener('click', prompt("enter a number"));
+			bigGrid.style.gridTemplateColumns = 'repeat(' + reset.addEventListener('click', prompt("enter a number")); + ', 1fr)';
+			bigGrid.style.gridTemplateRows = 'repeat(' + reset.addEventListener('click', prompt("enter a number")); + ', 1fr)';
+			for(j = 0; j < x; j++){
+				for(i = 0; i < x; i++){
+					const cells = document.createElement('div');
+					cells.textContent = i;
+					cells.classList.add('blocks');
+					bigGrid.appendChild(cells);
+				}
+			}
+		</script>
+	</body>
+</html>
