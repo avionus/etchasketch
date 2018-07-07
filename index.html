@@ -5,18 +5,32 @@
 		<link rel="stylesheet" type="text/css" href="etchasketch.css">
 	</head>
 	<body>
-		<div id="container"></div>
+		<h1>Etch-a-Sketch!</h1>
 		<button id="button">Reset</button>
+		<div class="gridsize"> 
+			<h4>Grid size</h4>
+			<input type="text" placeholder="gimme a number">
+		</div>
+		<div id="container"></div>
 		<script type="text/javascript">
-			const reset = document.querySelector('#button')
-			const bigGrid = document.querySelector('#container');
-			const x = prompt("enter a number");
-			bigGrid.style.gridTemplateColumns = 'repeat(' + x + ', 1fr)';
-			bigGrid.style.gridTemplateRows = 'repeat(' + x + ', 1fr)';
-			for(j = 0; j < x; j++){
-				for(i = 0; i < x; i++){
+			let bigGrid = document.querySelector('#container');
+			let reset = document.querySelector('button');
+			let gridsize = document.querySelector('input');
+			reset.addEventListener('click', function(){
+				window.location.reload();
+			});
+
+			window.addEventListener('load', grid(20));	
+			
+			function grid(size){
+				let sides = size;
+				let numbOfDivs = sides * sides;
+				let boxSize = 500/sides;
+				for (i =0; i < numbOfDivs; i++){
 					const cells = document.createElement('div');
-					cells.classList.add('blocks');
+					cells.classList.add('square');
+					cells.style.width = boxSize + 'px';
+					cells.style.height = boxSize + 'px';
 					cells.addEventListener("mouseover", function(event){
 						event.target.style.backgroundColor = "rgba(100, 0, 100, 100)";
 						setTimeout(function(){
@@ -32,6 +46,15 @@
 					bigGrid.appendChild(cells);
 				}
 			}
+		
+		gridsize.addEventListener('keydown', function (e) {
+			if (e.keyCode === 13) {
+			container.innerHTML = "";
+			grid(gridsize.value);
+	}
+
+});
+
 		</script>
 	</body>
 </html>
